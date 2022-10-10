@@ -1,0 +1,9 @@
+@import "./../variables";
+
+.CategoryItem {
+  padding: 24px;
+  background-color: $darkblue-primary;
+  margin-bottom: 16px;
+  font-weight: 700;
+  color: $white-primary;
+}

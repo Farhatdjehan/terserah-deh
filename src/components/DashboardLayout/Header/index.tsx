@@ -8,6 +8,7 @@ import logoPelindoWhite from "./../../../../public/assets/png/logoPelindoWhite.s
 import HamburgerSvg from "./../../../../public/assets/svg/hamburger.svg";
 import Image from "next/image";
 import { useRouter } from "next/router";
+import { handleBack } from "../../common/utils";
 
 interface HeaderProps {
   handleToggle: any;
@@ -17,6 +18,10 @@ interface HeaderProps {
 export default function Header(props: HeaderProps) {
   const { handleToggle, landing } = props;
   const src = `https://satukelas-fe-asset.ap-south-1.linodeobjects.com/profile1.png`;
+
+  const router = useRouter();
+
+  console.log(router?.pathname);
 
   const renderNavMenu = () => {
     return (
@@ -50,7 +55,11 @@ export default function Header(props: HeaderProps) {
       <header className={styles.header}>
         <div className={styles.mobile}>
           <div className={styles.logoWrapper}>
-            <div>Terserah !</div>
+            {router.pathname !== "/" ? (
+              <div onClick={() => handleBack(router)}>{"<<"}</div>
+            ) : (
+              <div>Terserah !</div>
+            )}
           </div>
           <div onClick={() => handleToggle(true)} className={styles.hamburger}>
             <Image src={HamburgerSvg} alt={``} />

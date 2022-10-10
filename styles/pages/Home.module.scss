@@ -1,0 +1,55 @@
+@import "./../variables";
+
+.menuHome {
+  background-color: $darkblue-primary;
+  height: 240px;
+  box-shadow: rgb(37 46 66 / 33%) 0px 32px 42px -20px;
+  padding: 32px;
+  margin-bottom: 42px;
+  position: relative;
+  //   display: flex;
+  //   align-items: flex-end;
+  .illustration {
+    position: absolute;
+    bottom: -32px;
+    right: 20px;
+  }
+  .text {
+    color: $white-primary;
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: 0.5px;
+    line-height: 30px;
+    margin-bottom: 8px;
+  }
+  .subText {
+    font-size: 12px;
+    line-height: 16px;
+    color: $white-fade;
+    line-height: 20px;
+    span {
+      font-weight: 700;
+    }
+  }
+}
+.invertHome {
+  background-color: #f3f3f7;
+
+  .text {
+    color: $darkblue-primary;
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: 0.5px;
+    line-height: 30px;
+    margin-bottom: 8px;
+  }
+  .subText {
+    font-size: 12px;
+    line-height: 16px;
+    color: $darkblue-primary;
+    line-height: 20px;
+    span {
+      font-weight: 700;
+    }
+  }
+}

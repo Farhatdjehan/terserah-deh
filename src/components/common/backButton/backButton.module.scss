@@ -1,0 +1,14 @@
+@import "./../../../../styles/mixins";
+@import "./../../../../styles/variables";
+
+.backButton {
+  display: block;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 21px;
+  color: $blue-primary;
+  margin-bottom: 16px;
+  @include desktop() {
+    display: none;
+  }
+}

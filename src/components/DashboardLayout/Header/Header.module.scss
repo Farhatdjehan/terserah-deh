@@ -1,0 +1,34 @@
+@import "./../../../../styles/variables";
+
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+
+.header {
+  background-color: $purple-primary;
+  color: $white-primary;
+  font-weight: 600;
+  padding: 16px;
+  letter-spacing: 0.5px;
+  font-size: 18px;
+  // flex-basis: 72px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+
+  /* MOBILE */
+  .mobile {
+    display: flex;
+    justify-content: space-between;
+
+    .logoWrapper {
+      height: 24px;
+    }
+
+    .hamburger {
+      height: 24px;
+      width: 24px;
+    }
+  }
+}

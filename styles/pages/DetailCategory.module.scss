@@ -1,0 +1,44 @@
+@import "./../variables";
+
+.categoryContainer {
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  .categoryWrapper {
+    width: 100%;
+    text-align: center;
+    .titleRandom {
+      font-size: 24px;
+      font-weight: 700;
+      width: 100%;
+      color: $white-primary;
+      margin-bottom: 12px;
+    }
+    .subTitleRandom {
+      color: $white-fade;
+      font-size: 14px;
+      margin-bottom: 24px;
+    }
+  }
+
+  .countNumber {
+    font-size: 68px;
+    color: $white-primary;
+    font-weight: 600;
+  }
+
+  .buttonRandom {
+    width: 100%;
+    button {
+      width: 100%;
+      border: none !important;
+      background-color: $blue-primary;
+      color: $white-primary;
+      padding: 14px;
+      font-weight: 600;
+      font-size: 16px;
+      border-radius: 24px;
+    }
+  }
+}

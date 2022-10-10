@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import ModalComponent from "../src/components/common/ModalComponent";
@@ -19,20 +20,20 @@ export default function Input() {
   return (
     <DashboardLayout pageTitle="Input">
       {/* <div className={styles.listInputTitle}>Masukin Pilihannya</div> */}
-      <div className={styles.handleInput}>
-        <form onSubmit={handleSave}>
-          <input
-            name="input"
-            id="input"
-            className={styles.inputForm}
-            onChange={handleChange}
-            placeholder="Masukkan Pilihannya!"
-          />
-          <div className={styles.buttonAlign}>
-            <button type="submit">Simpan</button>
-          </div>
-        </form>
-      </div>
+      {/* <div className={styles.handleInput}> */}
+      <form onSubmit={handleSave}>
+        <input
+          name="input"
+          id="input"
+          className={styles.inputForm}
+          onChange={handleChange}
+          placeholder="Masukkan Pilihannya!"
+        />
+        <div className={styles.buttonAlign}>
+          <button type="submit">Simpan</button>
+        </div>
+      </form>
+      {/* </div> */}
       <div>
         <div className={styles.listInputTitle}>List Acak</div>
         <div className={styles.itemInput}>
@@ -40,14 +41,17 @@ export default function Input() {
           <div className={styles.buttonWrapper}>×</div>
         </div>
         <div className={styles.itemInput}>
-          <div className={styles.title}>Satu</div>
+          <div className={styles.title}>Dua</div>
+          <div className={styles.buttonWrapper}>×</div>
+        </div>
+        <div className={styles.itemInput}>
+          <div className={styles.title}>Tiga</div>
           <div className={styles.buttonWrapper}>×</div>
         </div>
         <div className={styles.buttonAcak}>
-          <button onClick={handleModal}>Acak!</button>
+          <Link href="/random/id">Siapin Acak</Link>
         </div>
       </div>
-      {modal && <ModalComponent />}
     </DashboardLayout>
   );
 }

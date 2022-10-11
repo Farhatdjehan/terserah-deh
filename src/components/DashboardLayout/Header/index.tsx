@@ -21,8 +21,6 @@ export default function Header(props: HeaderProps) {
 
   const router = useRouter();
 
-  console.log(router?.pathname);
-
   const renderNavMenu = () => {
     return (
       <>

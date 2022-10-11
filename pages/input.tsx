@@ -1,26 +1,57 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useState } from "react";
-import ModalComponent from "../src/components/common/ModalComponent";
-import { handleBack } from "../src/components/common/utils";
+import { useEffect, useState } from "react";
+import {
+  deleteCookie,
+  getCookie,
+  setCookie,
+} from "../src/components/common/utils";
 import DashboardLayout from "../src/components/DashboardLayout";
 import styles from "./../styles/pages/Input.module.scss";
 export default function Input() {
-  const [modal, setModal] = useState(false);
   const router = useRouter();
+  const [dataList, setDataList]: any = useState();
+  const [dataCookie, setDataCookie]: any = useState([]);
+
+  useEffect(() => {
+    if (getCookie("dataRandom") !== "") {
+      let tmp = getCookie("dataRandom");
+      if (tmp !== undefined) {
+        console.log(tmp);
+        setDataCookie(JSON.parse(tmp));
+      }
+    }
+  }, []);
+
   const handleSave = (e: any) => {
     e.preventDefault();
+    const newData = { ...dataList };
+    let arr = [...dataCookie];
+    arr.push(newData);
+    setDataCookie(arr);
+    setCookie("dataRandom", JSON.stringify(arr), 90);
   };
+
   const handleChange = (e: any) => {
-    console.log(e);
+    const newData = { ...dataList };
+    newData[e.target.name] = e.target.value;
+    setDataList(newData);
   };
-  const handleModal = () => {
-    setModal(true);
+
+  const handleDelete = (e: any, id: any) => {
+    e.preventDefault();
+    const newData = [...dataCookie];
+    newData.splice(id, 1);
+    setDataCookie(newData);
   };
+
+  const handleDeleteCookie = () => {
+    deleteCookie("dataRandom");
+    router.reload();
+  };
+
   return (
     <DashboardLayout pageTitle="Input">
-      {/* <div className={styles.listInputTitle}>Masukin Pilihannya</div> */}
-      {/* <div className={styles.handleInput}> */}
       <form onSubmit={handleSave}>
         <input
           name="input"
@@ -33,24 +64,40 @@ export default function Input() {
           <button type="submit">Simpan</button>
         </div>
       </form>
-      {/* </div> */}
-      <div>
+      <div className={styles.listWrapper}>
         <div className={styles.listInputTitle}>List Acak</div>
-        <div className={styles.itemInput}>
-          <div className={styles.title}>Satu</div>
-          <div className={styles.buttonWrapper}>×</div>
-        </div>
-        <div className={styles.itemInput}>
-          <div className={styles.title}>Dua</div>
-          <div className={styles.buttonWrapper}>×</div>
-        </div>
-        <div className={styles.itemInput}>
-          <div className={styles.title}>Tiga</div>
-          <div className={styles.buttonWrapper}>×</div>
-        </div>
-        <div className={styles.buttonAcak}>
-          <Link href="/random/id">Siapin Acak</Link>
-        </div>
+        {dataCookie?.length > 0 ? (
+          <>
+            {dataCookie.map((item: any, index: any) => {
+              return (
+                <div key={index} className={styles.itemInput}>
+                  <div className={styles.title}>{item.input}</div>
+                  <div
+                    onClick={(e) => handleDelete(e, index)}
+                    className={styles.buttonWrapper}
+                  >
+                    ×
+                  </div>
+                </div>
+              );
+            })}
+            <>
+              <Link href="/random/custom">
+                <div className={styles.buttonAcak}>Siapin Acak</div>
+              </Link>
+              {dataCookie?.length > 0 && (
+                <button
+                  onClick={handleDeleteCookie}
+                  className={styles.buttonAcak}
+                >
+                  Hapus List
+                </button>
+              )}
+            </>
+          </>
+        ) : (
+          <div className={styles.notFoundList}>Tidak Ada List</div>
+        )}
       </div>
     </DashboardLayout>
   );

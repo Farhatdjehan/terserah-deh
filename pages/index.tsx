@@ -21,7 +21,7 @@ export default function Home() {
         </div>
       </Link>
       <Link href="/category" passHref>
-        <div className={`${styles.menuHome} ${styles.invertHome}`}>
+        <div className={styles.menuHome}>
           <div className={styles.text}>Pilih Kategori</div>
           <div className={styles.illustration}>
             <Image src={file} width={80} height={105} />

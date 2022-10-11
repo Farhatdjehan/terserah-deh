@@ -1,21 +1,20 @@
 @import "./../variables";
 
 .menuHome {
-  background-color: $darkblue-primary;
+  background-color: $greenfade-primary;
   height: 240px;
   box-shadow: $box-shadow;
   padding: 32px;
   margin-bottom: 42px;
   position: relative;
-  //   display: flex;
-  //   align-items: flex-end;
+  border-radius: 8px;
   .illustration {
     position: absolute;
     bottom: -32px;
     right: 20px;
   }
   .text {
-    color: $white-primary;
+    color: $darkblue-primary;
     font-weight: 700;
     font-size: 20px;
     letter-spacing: 0.5px;
@@ -25,7 +24,7 @@
   .subText {
     font-size: 12px;
     line-height: 16px;
-    color: $white-fade;
+    color: $darkblue-fade;
     line-height: 20px;
     span {
       font-weight: 700;

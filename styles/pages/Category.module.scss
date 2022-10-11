@@ -2,19 +2,19 @@
 
 .categoryWrapper {
   padding: 24px;
-  background-color: $darkblue-primary;
+  background-color: $green-primary;
   margin-bottom: 16px;
   height: 100px;
   display: flex;
+  border-radius: 8px;
+  color: $darkblue-primary;
   align-items: center;
   .CategoryItem {
-    font-weight: 600;
+    font-weight: 700;
     letter-spacing: 0.5px;
-    color: $white-primary;
+    color: $darkblue-primary;
     display: flex;
     font-size: 16px;
-  }
-  .ButtonNavigation {
   }
   .buttonRandom {
     width: 100%;

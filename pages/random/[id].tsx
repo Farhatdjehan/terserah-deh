@@ -51,9 +51,8 @@ export default function CategoryDetail() {
         }
       }
     } else {
-      setDataCookie(category[parseInt(id)].list);
+      setDataCookie(category[parseInt(id)]?.list);
     }
-    console.log(router?.query?.id);
   }, [router]);
 
   const handleRandom = (e: any) => {
@@ -82,9 +81,11 @@ export default function CategoryDetail() {
         </div>
         {showResult && (
           <div className={styles.selectedOption}>
-            {router?.query?.id === "custom"
-              ? dataCookie[idData]?.input
-              : dataCookie[idData]}
+            <div>
+              {router?.query?.id === "custom"
+                ? dataCookie[idData]?.input
+                : dataCookie[idData]}
+            </div>
           </div>
         )}
         {countShow && <div className={styles.countNumber}>{count}</div>}

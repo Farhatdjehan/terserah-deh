@@ -32,10 +32,16 @@
   .selectedOption {
     width: 100%;
     text-align: center;
-    color: $white-primary;
     font-size: 24px;
-    font-weight: 600;
-    padding: 8px;
+    div {
+      padding: 12px 32px;
+      width: max-content;
+      margin: auto;
+      border-radius: 32px;
+      font-weight: 700;
+      color: $darkblue-primary;
+      background-color: $white-primary;
+    }
   }
 
   .buttonRandom {
@@ -48,7 +54,7 @@
       padding: 14px;
       font-weight: 600;
       font-size: 16px;
-      border-radius: 24px;
+      border-radius: 8px;
     }
   }
 }

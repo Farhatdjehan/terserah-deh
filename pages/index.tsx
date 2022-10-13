@@ -11,7 +11,7 @@ export default function Home() {
         <div className={styles.menuHome}>
           <div className={styles.text}>Masukin Sendiri Pilihannya</div>
           <div className={styles.illustration}>
-            <Image src={file} width={80} height={105} />
+            <Image src={file} width={80} height={105} alt="file"/>
           </div>
           <div className={styles.subText}>
             Input pilihannya sendiri berdasarkan yang <span>kamu pikirin</span>.
@@ -24,7 +24,7 @@ export default function Home() {
         <div className={styles.menuHome}>
           <div className={styles.text}>Pilih Kategori</div>
           <div className={styles.illustration}>
-            <Image src={file} width={80} height={105} />
+            <Image src={file} width={80} height={105} alt="file" />
           </div>
           <div className={styles.subText}>
             Udah disediain pilihannya nih tinggal kamu <span>acak aja</span>.

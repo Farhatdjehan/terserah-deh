@@ -43,10 +43,10 @@
     }
 
     &.active {
-        color: $blue-primary;
+        color: $purple-primary;
 
         .title {
-            border-bottom: 2px solid $blue-primary;
+            border-bottom: 2px solid $purple-primary;
         }
 
         .globe::before {

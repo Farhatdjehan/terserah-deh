@@ -17,18 +17,18 @@
 
   .pro-menu {
     .pro-menu-item {
-      padding: 0 1.5rem;
+      // padding: 0 1.5rem;
       &.active {
         color: $white-primary;
         font-weight: 700;
         .pro-inner-item {
-          background: $blue-primary;
+          background: $purple-primary;
         }
       }
       &:hover {
         cursor: pointer;
         .pro-inner-item {
-          background: $blue-primary;
+          background: $purple-primary;
           font-weight: 700;
           color: $white-primary;
         }

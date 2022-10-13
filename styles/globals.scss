@@ -1,9 +1,12 @@
 @import "./variables";
+
+* {
+  font-family: "Poppins", sans-serif !important;
+}
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: "Poppins", sans-serif !important;
   font-size: 16px;
   height: 100%;
   line-height: 150%;
@@ -183,6 +186,80 @@ button {
   ._container {
     padding: 0 1rem;
     max-width: 1170px;
+  }
+}
+
+.main-screen__button {
+  background-color: #5d39dd;
+  border: none;
+  border-radius: 8px;
+  color: $white-primary;
+  font-weight: 600;
+  padding: 12px 8px;
+}
+
+.ReactModal__Overlay {
+  z-index: 2;
+  background-color: rgb(65 64 64 / 75%) !important;
+}
+
+.sharelink {
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 12px;
+  line-height: 16px;
+}
+
+.wrapper-btn {
+  display: flex;
+  flex-direction: column;
+}
+
+.main-screen__toast {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.64);
+  padding: 12px 20px;
+  border-radius: 8px;
+  transition: 1s;
+  bottom: 16px;
+  z-index: 3;
+  box-shadow: rgb(17 12 46 / 15%) 0px 48px 100px 0px;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  width: fit-content;
+  /* display: none; */
+}
+
+.toast-text {
+  font-weight: 600;
+  color: white;
+  opacity: 1;
+}
+
+.or-text {
+  text-align: center;
+  padding: 16px 0;
+  color: rgba(0, 0, 0, 0.471);
+  font-size: 14px;
+}
+
+.btn {
+  border: none;
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  color: #fff;
+  font-weight: 600;
+  &.twitter {
+    background-color: #1d9bf0;
+  }
+  &.facebook {
+    background-color: #3b5998;
+  }
+  &.whatsapp {
+    background-color: #10c045;
   }
 }
 

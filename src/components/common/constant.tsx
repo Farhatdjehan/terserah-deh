@@ -110,5 +110,3 @@ export const category = [
     ],
   },
 ];
-
-export const GA_MEASUREMENT_ID = "G-8L6L6ZYDL0";

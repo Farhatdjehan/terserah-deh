@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
+import "animate.css";
 import { useEffect, useState } from "react";
 import {
   deleteCookie,
@@ -11,6 +12,9 @@ import styles from "./../styles/pages/Input.module.scss";
 export default function Input() {
   const router = useRouter();
   const [dataList, setDataList]: any = useState();
+  const [idState, setIdState]: any = useState();
+  const [animation, setAnimation] = useState(false);
+  const [deleteList, setDeleteList]: any = useState(false);
   const [dataCookie, setDataCookie]: any = useState([]);
 
   useEffect(() => {
@@ -25,11 +29,16 @@ export default function Input() {
 
   const handleSave = (e: any) => {
     e.preventDefault();
+    let tmp = document.getElementById("input") as HTMLInputElement;
     const newData = { ...dataList };
     let arr = [...dataCookie];
     arr.push(newData);
     setDataCookie(arr);
     setCookie("dataRandom", JSON.stringify(arr), 90);
+    if (tmp) {
+      tmp.value = "";
+    }
+    setAnimation(true);
   };
 
   const handleChange = (e: any) => {
@@ -38,21 +47,45 @@ export default function Input() {
     setDataList(newData);
   };
 
+  useEffect(() => {
+    setTimeout(() => {
+      setAnimation(false);
+    }, 500);
+  }, [animation]);
+
+  useEffect(() => {
+    if (dataCookie.length < 0) {
+      setDeleteList(false);
+    }
+  }, [dataCookie]);
+
+  useEffect(() => {
+    if (deleteList) {
+      const newData = [...dataCookie];
+      newData.splice(idState, 1);
+      setDataCookie(newData);
+    }
+  }, [deleteList, idState]);
+
   const handleDelete = (e: any, id: any) => {
     e.preventDefault();
+    setIdState(id);
     const newData = [...dataCookie];
-    newData.splice(id, 1);
+    newData.splice(idState, 1);
     setDataCookie(newData);
+    setCookie("dataRandom", JSON.stringify(newData), 90);
+    // setDeleteList(true);
   };
 
   const handleDeleteCookie = () => {
     deleteCookie("dataRandom");
+    setDeleteList(true);
     router.reload();
   };
 
   return (
     <DashboardLayout pageTitle="Input">
-      <form onSubmit={handleSave}>
+      <form id="form" onSubmit={handleSave}>
         <input
           name="input"
           id="input"
@@ -61,16 +94,25 @@ export default function Input() {
           placeholder="Masukkan Pilihannya!"
         />
         <div className={styles.buttonAlign}>
-          <button type="submit">Simpan</button>
+          <button
+            className={`${animation && "animate__animated animate__bounceIn"}`}
+            type="submit"
+          >
+            Simpan
+          </button>
         </div>
       </form>
       <div className={styles.listWrapper}>
         <div className={styles.listInputTitle}>List Acak</div>
         {dataCookie?.length > 0 ? (
-          <>
+          <div
+            className={`${
+              deleteList && "animate__animated animate__backOutLeft"
+            }`}
+          >
             {dataCookie.map((item: any, index: any) => {
               return (
-                <div key={index} className={styles.itemInput}>
+                <div key={index} className={`${styles.itemInput}`}>
                   <div className={styles.title}>{item.input}</div>
                   <div
                     onClick={(e) => handleDelete(e, index)}
@@ -94,7 +136,7 @@ export default function Input() {
                 </button>
               )}
             </>
-          </>
+          </div>
         ) : (
           <div className={styles.notFoundList}>Tidak Ada List</div>
         )}

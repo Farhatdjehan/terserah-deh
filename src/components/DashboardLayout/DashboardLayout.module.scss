@@ -3,31 +3,32 @@ $breakpoint-tablet: 768px;
 $breakpoint-lg: 992px;
 
 .pageWrapper {
+  display: flex;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+
+  .contentWrapper {
     display: flex;
+    flex-grow: 1;
     height: 100%;
-    overflow: hidden;
+    flex-direction: column;
     position: relative;
+    overflow-y: auto;
+    background-color: $purple-primary;
 
-    .contentWrapper {
-        display: flex;
-        flex-grow: 1;
-        height: 100%;
-        flex-direction: column;
-        position: relative;
-        overflow-y: auto;
-        background-color: $purple-primary;
-
-        .dashboardContent {
-            height: inherit;
-            display: flex;
-            flex-direction: column;
-            padding-bottom: 74px;
-            padding: 32px 16px;
-            max-width: 500px;
-            width: 100%;
-            overflow: auto;
-            margin: auto;
-            // border: 1px solid black;
-        }
+    .dashboardContent {
+      height: inherit;
+      display: flex;
+      flex-direction: column;
+      padding-bottom: 74px;
+      padding: 32px 16px;
+      max-width: 500px;
+      width: 100%;
+      overflow-y: auto;
+      overflow-x: hidden;
+      margin: auto;
+      // border: 1px solid black;
     }
+  }
 }

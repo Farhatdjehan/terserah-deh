@@ -15,9 +15,10 @@
     "jsx": "preserve",
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "audio/*"],
   "exclude": ["node_modules"],
   "typeRoots": [
-    "audio"
+    "node_modules/@types",
+    "audio/"
   ] 
 }

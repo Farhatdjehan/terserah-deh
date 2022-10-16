@@ -16,11 +16,10 @@ interface SidebarProps {
 }
 
 export default function Sidebar(props: SidebarProps) {
+  const url = "https://terserah-deh.vercel.app";
   const { toggle, handleToggle } = props;
   const [copied, setCopied]: any = useState(false);
   const [share, setShare]: any = useState(false);
-
-  const url = "https://terserah-deh.vercel.app";
 
   useEffect(() => {
     if (copied) {

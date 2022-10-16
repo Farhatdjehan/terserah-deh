@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import "animate.css";
 import { useEffect, useState } from "react";
 import {
   deleteCookie,
@@ -15,13 +14,13 @@ export default function Input() {
   const [idState, setIdState]: any = useState();
   const [animation, setAnimation] = useState(false);
   const [deleteList, setDeleteList]: any = useState(false);
+  const [deleteData, setDeleteData]: any = useState(false);
   const [dataCookie, setDataCookie]: any = useState([]);
 
   useEffect(() => {
     if (getCookie("dataRandom") !== "") {
       let tmp = getCookie("dataRandom");
       if (tmp !== undefined) {
-        console.log(tmp);
         setDataCookie(JSON.parse(tmp));
       }
     }
@@ -61,20 +60,17 @@ export default function Input() {
 
   useEffect(() => {
     if (deleteList) {
-      const newData = [...dataCookie];
-      newData.splice(idState, 1);
-      setDataCookie(newData);
+      setCookie("dataRandom", JSON.stringify(dataCookie), 90);
     }
-  }, [deleteList, idState]);
+  }, [deleteList, dataCookie]);
 
   const handleDelete = (e: any, id: any) => {
     e.preventDefault();
-    setIdState(id);
     const newData = [...dataCookie];
-    newData.splice(idState, 1);
-    setDataCookie(newData);
+    newData.splice(id, 1);
+    setIdState(id);
     setCookie("dataRandom", JSON.stringify(newData), 90);
-    // setDeleteList(true);
+    setDataCookie(newData);
   };
 
   const handleDeleteCookie = () => {

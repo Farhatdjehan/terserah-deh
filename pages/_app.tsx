@@ -1,6 +1,7 @@
 import "../styles/globals.scss";
 import type { AppProps } from "next/app";
 import Script from "next/script";
+import "animate.css";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (

@@ -1,14 +1,13 @@
 import { useRouter } from "next/router";
-import { useState, useEffect, useReducer, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { category } from "../../src/components/common/constant";
 import { getCookie } from "../../src/components/common/utils";
 import DashboardLayout from "../../src/components/DashboardLayout";
 import styles from "./../../styles/pages/DetailCategory.module.scss";
-import "animate.css";
 import Confetti from "react-confetti";
 import tada from "../../public/tada.mp3";
-import ReactAudioPlayer from "react-audio-player";
-// const tada = require("./../../public/tada.mp3");
+import drum from "../../public/drum.mp3";
+import HeaderResult from "../../src/components/HeaderResult";
 
 export default function CategoryDetail() {
   const router = useRouter();
@@ -22,44 +21,17 @@ export default function CategoryDetail() {
   const [dataCookie, setDataCookie]: any = useState([]);
   const prevCountRef: any = useRef();
 
-  const counter = () => {
-    let num = count;
-    const retry = () => {
-      num -= 1;
-      setCount(num);
-      setAnimation(true);
-      if (num <= 0) {
-        setAnimation(false);
-
-        clearInterval(attempt);
-      }
-    };
-    let attempt = setInterval(retry, 1000);
-  };
-
   useEffect(() => {
     setTimeout(function () {
       setAnimation(false);
-    }, 800);
+    }, 500);
   }, [count]);
 
   useEffect(() => {
     if (count !== 4) {
-      // console.log(count !== 4);
       setAnimation(true);
     }
   }, [count, countShow]);
-
-  useEffect(() => {
-    //assign the ref's current value to the count Hook
-    prevCountRef.current = count;
-  }, []);
-
-  const usePrevious = (value: any) => {
-    const ref = useRef();
-    ref.current = value;
-    return ref.current;
-  };
 
   useEffect(() => {
     if (countShow) {
@@ -104,23 +76,32 @@ export default function CategoryDetail() {
     setShowResult(false);
   };
 
+  const counter = () => {
+    let num = count;
+    const retry = () => {
+      num -= 1;
+      setCount(num);
+      setAnimation(true);
+      if (num <= 0) {
+        // setAnimation(false);
+        clearInterval(attempt);
+      }
+    };
+    let attempt = setInterval(retry, 1000);
+  };
+
   return (
     <DashboardLayout pageTitle="Random Id">
       {showResult && <Confetti recycle={false} width={width} height={height} />}
       <div className={styles.categoryContainer}>
         <div className={styles.categoryWrapper}>
           {showResult ? (
-            <>
-              <div className={styles.titleRandom}>Hasil Acakan</div>
-              <div className={styles.subTitleRandom}>Jangan curang ya!</div>
-            </>
+            <HeaderResult title="Hasil Acakan" subtitle="Jangan curang ya!" />
           ) : (
-            <>
-              <div className={styles.titleRandom}>Siap Untuk Acak?</div>
-              <div className={styles.subTitleRandom}>
-                Tekan tombol acak jika udah siap
-              </div>
-            </>
+            <HeaderResult
+              title="Siap Untuk Acak?"
+              subtitle="Tekan tombol acak kalau dah siap!"
+            />
           )}
         </div>
         {showResult && (
@@ -134,11 +115,11 @@ export default function CategoryDetail() {
                   : dataCookie[idData]}
               </div>
             </div>
-            {/* <ReactAudioPlayer src={tada} autoPlay controls /> */}
-            {/* <audio src={require("../../public/tada.mp3")} autoPlay /> */}
+            <audio src={tada} autoPlay />
           </>
         )}
         {countShow && (
+          <>
           <div
             className={`${styles.countNumber} ${
               animation && "animate__animated animate__bounceIn"
@@ -146,6 +127,9 @@ export default function CategoryDetail() {
           >
             {count}
           </div>
+          <audio src={drum} autoPlay />
+
+          </>
         )}
         {showResult ? (
           <div className={styles.buttonRandom}>

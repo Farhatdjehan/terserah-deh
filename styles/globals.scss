@@ -139,49 +139,6 @@ button {
   color: white;
 }
 
-//accordion
-.rc-collapse-item {
-  width: 300px;
-}
-.rc-collapse-header {
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 24px;
-  gap: 16px;
-  height: 76px;
-  background: #ffffff;
-  border-width: 0px 1px 1px 0px;
-  border-style: solid;
-  border-color: #e3e1e1;
-  flex: none;
-  order: 0;
-  align-self: stretch;
-  flex-grow: 0;
-}
-.rc-collapse > .rc-collapse-item > .rc-collapse-header {
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: space-between;
-  align-items: center;
-  line-height: 22px;
-  padding: 10px 16px;
-  color: #666;
-  cursor: pointer;
-}
-.rc-collapse-header-text {
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 28px;
-  color: $blue-secondary;
-  flex: none;
-  order: 0;
-  flex-grow: 1;
-}
-
 @media only screen and (min-width: 768px) {
   ._container {
     padding: 0 1rem;

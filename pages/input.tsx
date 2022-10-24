@@ -83,6 +83,14 @@ export default function Input() {
     <DashboardLayout pageTitle="Input">
       <form id="form" onSubmit={handleSave}>
         <input
+          name="kategori"
+          id="kategori"
+          className={styles.inputForm}
+          onChange={handleChange}
+          placeholder="Masukkan Kategorinya ya!"
+          required
+        />
+        <input
           name="input"
           id="input"
           className={styles.inputForm}
@@ -120,7 +128,7 @@ export default function Input() {
               );
             })}
             <>
-              <Link href="/random/custom">
+              <Link href={`/random/custom?${dataList?.kategori}`}>
                 <div className={styles.buttonAcak}>Siapin Acak</div>
               </Link>
               {dataCookie?.length > 0 && (

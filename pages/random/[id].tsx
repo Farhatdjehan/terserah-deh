@@ -19,7 +19,7 @@ export default function CategoryDetail() {
   const [width, setWidth]: any = useState();
   const [height, setHeight]: any = useState();
   const [dataCookie, setDataCookie]: any = useState([]);
-  const prevCountRef: any = useRef();
+  let path = router?.asPath.split("?");
 
   useEffect(() => {
     setTimeout(function () {
@@ -96,7 +96,10 @@ export default function CategoryDetail() {
       <div className={styles.categoryContainer}>
         <div className={styles.categoryWrapper}>
           {showResult ? (
-            <HeaderResult title="Hasil Acakan" subtitle="Jangan curang ya!" />
+            <HeaderResult
+              title={`Hasil Acakan ${path[1]} Kamu`}
+              subtitle="Jangan curang ya!!"
+            />
           ) : (
             <HeaderResult
               title="Siap Untuk Acak?"
@@ -120,15 +123,14 @@ export default function CategoryDetail() {
         )}
         {countShow && (
           <>
-          <div
-            className={`${styles.countNumber} ${
-              animation && "animate__animated animate__bounceIn"
-            }`}
-          >
-            {count}
-          </div>
-          <audio src={drum} autoPlay />
-
+            <div
+              className={`${styles.countNumber} ${
+                animation && "animate__animated animate__bounceIn"
+              }`}
+            >
+              {count}
+            </div>
+            <audio src={drum} autoPlay />
           </>
         )}
         {showResult ? (

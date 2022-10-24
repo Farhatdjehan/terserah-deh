@@ -1,22 +1,34 @@
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./../../styles/pages/Home.module.scss";
+import Lottie from "react-lottie";
 
 interface MenuProps {
   link: string;
   file: any;
   desc: string;
+  title: string;
 }
 
 export default function MainMenu(props: MenuProps) {
-  const { link, file, desc } = props;
+  const { link, file, desc, title } = props;
+
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: file,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
 
   return (
     <Link href={`/${link}`} passHref>
       <div className={`${styles.menuHome} `}>
-        <div className={styles.text}>Masukin Sendiri Pilihannya</div>
+        <div className={styles.text}>{title}</div>
         <div className={styles.illustration}>
-          <Image src={file} width={80} height={105} alt="file" />
+          <Lottie options={defaultOptions} height={200} width={200} />
+          {/* <Image src={file} width={80} height={105} alt="file" /> */}
         </div>
         <div className={styles.subText}>
           <div dangerouslySetInnerHTML={{ __html: desc }} />

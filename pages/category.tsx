@@ -8,7 +8,7 @@ export default function Category() {
     <DashboardLayout pageTitle="Kategori">
       {category.map((item: any, index: any) => {
         return (
-          <Link key={index} href={`/random/${index}`}>
+          <Link key={index} href={`/random/${index}?${item?.category}`}>
             <div className={styles.categoryWrapper}>
               <div className={styles.CategoryItem}>
                 <div>{item?.category}</div>

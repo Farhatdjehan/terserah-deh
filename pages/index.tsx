@@ -18,6 +18,7 @@ export default function Home() {
         file={animationData}
         desc="Udah disediain pilihannya nih tinggal kamu <span>acak aja</span>."
         title="Pilih Kategori"
+        
       />
     </DashboardLayout>
   );

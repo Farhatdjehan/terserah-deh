@@ -8,6 +8,7 @@ import Confetti from "react-confetti";
 import tada from "../../public/tada.mp3";
 import drum from "../../public/drum.mp3";
 import HeaderResult from "../../src/components/HeaderResult";
+import ReactAudioPlayer from "react-audio-player";
 
 export default function CategoryDetail() {
   const router = useRouter();
@@ -118,7 +119,7 @@ export default function CategoryDetail() {
                   : dataCookie[idData]}
               </div>
             </div>
-            <audio src={tada} autoPlay />
+            <ReactAudioPlayer src={tada} autoPlay />
           </>
         )}
         {countShow && (
@@ -130,7 +131,7 @@ export default function CategoryDetail() {
             >
               {count}
             </div>
-            <audio src={drum} autoPlay />
+            <ReactAudioPlayer src={drum} autoPlay />
           </>
         )}
         {showResult ? (

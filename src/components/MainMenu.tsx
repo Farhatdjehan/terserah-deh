@@ -27,8 +27,7 @@ export default function MainMenu(props: MenuProps) {
       <div className={`${styles.menuHome} `}>
         <div className={styles.text}>{title}</div>
         <div className={styles.illustration}>
-          <Lottie options={defaultOptions} height={200} width={200} />
-          {/* <Image src={file} width={80} height={105} alt="file" /> */}
+          <Lottie options={defaultOptions} height={135} width={135} />
         </div>
         <div className={styles.subText}>
           <div dangerouslySetInnerHTML={{ __html: desc }} />

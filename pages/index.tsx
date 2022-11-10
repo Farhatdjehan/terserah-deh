@@ -18,7 +18,7 @@ export default function Home() {
       <MainMenu
         link="input"
         file={spaceData}
-        desc="Input pilihannya sendiri berdasarkan yang <span>kamu pikirin</span>. Lalu acak pilihannya.."
+        desc="Input pilihannya sendiri berdasarkan yang <span>kamu pikirin</span>."
         title="Masukin Sendiri Pilihannya"
       />
     </DashboardLayout>

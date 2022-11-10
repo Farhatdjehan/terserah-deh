@@ -8,10 +8,14 @@
   margin-bottom: 42px;
   position: relative;
   border-radius: 8px;
+  position: relative;
   .illustration {
     position: absolute;
-    bottom: -41px;
-    right: 4px;
+    bottom: -28px;
+    right: 12px;
+    background-color: #f6f1e1;
+    border-radius: 78px;
+    padding: 10px;
   }
   .text {
     color: $darkpurple-primary;
@@ -20,6 +24,12 @@
     letter-spacing: 0.5px;
     line-height: 30px;
     margin-bottom: 8px;
+  }
+  .main {
+    position: absolute;
+    bottom: -7px;
+    right: 0;
+    opacity: 0.75;
   }
   .subText {
     font-size: 12px;

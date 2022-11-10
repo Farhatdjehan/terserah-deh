@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { category } from "../src/components/common/constant";
 import DashboardLayout from "../src/components/DashboardLayout";
@@ -11,9 +12,12 @@ export default function Category() {
           <Link key={index} href={`/random/${index}?${item?.category}`}>
             <div className={styles.categoryWrapper}>
               <div className={styles.CategoryItem}>
-                <div>{item?.category}</div>
+                <div className={styles.title}>{item?.category}</div>
+                <div className={styles.sub}>{item?.sub}</div>
               </div>
-              <div className={styles.ButtonNavigation}></div>
+              <div className={styles.ButtonNavigation}>
+                <Image src={item.illustration} width={145} height={110} />
+              </div>
             </div>
           </Link>
         );

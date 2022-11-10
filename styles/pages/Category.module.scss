@@ -1,22 +1,38 @@
 @import "./../variables";
 
 .categoryWrapper {
-  padding: 24px;
+  padding: 16px 24px;
   background-color: $green-primary;
   margin-bottom: 16px;
-  height: 100px;
+  height: 130px;
   display: flex;
   border-radius: 8px;
   color: $darkpurple-primary;
-  align-items: center;
+  align-items: flex-start;
+  position: relative;
   .CategoryItem {
-    font-weight: 700;
-    letter-spacing: 0.5px;
     color: $darkpurple-primary;
     display: flex;
-    font-size: 16px;
+    flex-direction: column;
+    .title {
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.25px;
+    }
+    .sub {
+      font-size: 12px;
+      opacity: 0.8;
+    }
   }
   .buttonRandom {
     width: 100%;
+  }
+  .ButtonNavigation {
+    position: absolute;
+    // width: 150px;
+    // filter: invert(1);
+    right: 0;
+    bottom: -7px;
+    opacity: 0.75;
   }
 }

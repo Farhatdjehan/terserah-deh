@@ -9,6 +9,8 @@ import tada from "../../public/tada.mp3";
 import drum from "../../public/drum.mp3";
 import HeaderResult from "../../src/components/HeaderResult";
 import ReactAudioPlayer from "react-audio-player";
+import Image from "next/image";
+import main from "./../../public/assets/png/main.png";
 
 export default function CategoryDetail() {
   const router = useRouter();
@@ -143,6 +145,9 @@ export default function CategoryDetail() {
             <button onClick={handleRandom}>Acak</button>
           </div>
         )}
+      </div>
+      <div className={styles.pattern}>
+        <Image src={main} />
       </div>
     </DashboardLayout>
   );

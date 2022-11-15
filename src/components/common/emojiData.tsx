@@ -13,7 +13,14 @@ export const emojiData = [
   },
   {
     emoji: "🍚",
-    type: ["nasi", "nasi goreng", "nasi gila", "nasi warteg", "bubur"],
+    type: [
+      "nasi",
+      "nasi goreng",
+      "nasi gila",
+      "nasi warteg",
+      "bubur",
+      "nasi padang",
+    ],
   },
   {
     emoji: "🐟",

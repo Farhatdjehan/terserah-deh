@@ -11,6 +11,7 @@ import HeaderResult from "../../src/components/HeaderResult";
 import ReactAudioPlayer from "react-audio-player";
 import Image from "next/image";
 import main from "./../../public/assets/png/main.png";
+import { emojiData } from "../../src/components/common/emojiData";
 
 export default function CategoryDetail() {
   const router = useRouter();
@@ -21,6 +22,7 @@ export default function CategoryDetail() {
   const [idData, setIdData]: any = useState();
   const [width, setWidth]: any = useState();
   const [height, setHeight]: any = useState();
+  const [emojiShow, setEmojiShow]: any = useState();
   const [dataCookie, setDataCookie]: any = useState([]);
   let path = router?.asPath.split("?");
 
@@ -79,6 +81,28 @@ export default function CategoryDetail() {
     setShowResult(false);
   };
 
+  function searchStringInArray(strArray: any) {
+    strArray.indexOf("mie");
+  }
+
+  useEffect(() => {}, [emojiShow]);
+
+  useEffect(() => {
+    if (dataCookie) {
+      let tmp;
+      if (router?.query?.id === "custom") {
+        tmp = emojiData.filter((e) =>
+          e.type.includes(dataCookie[idData]?.input?.toLowerCase())
+        );
+      } else {
+        tmp = emojiData.filter((e) =>
+          e.type.includes(dataCookie[idData]?.toLowerCase())
+        );
+      }
+      setEmojiShow(tmp);
+    }
+  }, [dataCookie, idData, router]);
+
   const counter = () => {
     let num = count;
     const retry = () => {
@@ -111,7 +135,10 @@ export default function CategoryDetail() {
           )}
         </div>
         {showResult && (
-          <>
+          <div className={styles.wrapperResult}>
+            {dataCookie && (
+              <div className={styles.emoji}>{emojiShow[0]?.emoji}</div>
+            )}
             <div
               className={`${styles.selectedOption} animate__animated animate__heartBeat`}
             >
@@ -122,7 +149,7 @@ export default function CategoryDetail() {
               </div>
             </div>
             <ReactAudioPlayer src={tada} autoPlay />
-          </>
+          </div>
         )}
         {countShow && (
           <>

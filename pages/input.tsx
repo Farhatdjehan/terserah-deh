@@ -53,7 +53,7 @@ export default function Input() {
   }, [animation]);
 
   useEffect(() => {
-    if (dataCookie.length < 0) {
+    if (dataCookie?.length < 0) {
       setDeleteList(false);
     }
   }, [dataCookie]);
@@ -75,8 +75,8 @@ export default function Input() {
 
   const handleDeleteCookie = () => {
     deleteCookie("dataRandom");
-    setDeleteList(true);
     router.reload();
+    // setDeleteList(true);
   };
 
   return (
@@ -109,11 +109,7 @@ export default function Input() {
       <div className={styles.listWrapper}>
         <div className={styles.listInputTitle}>List Acak</div>
         {dataCookie?.length > 0 ? (
-          <div
-            className={`${
-              deleteList && "animate__animated animate__backOutLeft"
-            }`}
-          >
+          <div>
             {dataCookie.map((item: any, index: any) => {
               return (
                 <div key={index} className={`${styles.itemInput}`}>

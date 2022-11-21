@@ -16,14 +16,14 @@ $breakpoint-lg: 992px;
     position: relative;
     overflow-y: auto;
     overflow-x: hidden;
-    background-color: $purple-primary;
+    background-color: $white;
 
     .dashboardContent {
       height: inherit;
       // display: flex;
       flex-direction: column;
       padding-bottom: 74px;
-      padding: 32px 24px;
+      padding: 16px;
       max-width: 500px;
       width: 100%;
       overflow-y: auto;

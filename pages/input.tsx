@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import { categoryCustom } from "../src/components/common/constant";
 import {
   deleteCookie,
   getCookie,
@@ -13,8 +14,11 @@ export default function Input() {
   const [dataList, setDataList]: any = useState();
   const [idState, setIdState]: any = useState();
   const [animation, setAnimation] = useState(false);
+  const [id, setId] = useState();
   const [deleteList, setDeleteList]: any = useState(false);
   const [deleteData, setDeleteData]: any = useState(false);
+  const [show, setShow]: any = useState(false);
+  const [value, setValue]: any = useState();
   const [dataCookie, setDataCookie]: any = useState([]);
 
   useEffect(() => {
@@ -78,18 +82,62 @@ export default function Input() {
     router.reload();
     // setDeleteList(true);
   };
+  const handleCheckSender = (e: any) => {
+    let data: any = document.querySelector("#show");
+    data?.checked;
+    setShow(data?.checked);
+  };
 
+  const handleActive = (e: any, index: any, value: any) => {
+    e.preventDefault();
+    let newData = { ...dataList };
+    setId(index);
+    newData.kategori = value;
+    setDataList(newData);
+  };
   return (
     <DashboardLayout pageTitle="Input">
       <form id="form" onSubmit={handleSave}>
-        <input
-          name="kategori"
-          id="kategori"
-          className={styles.inputForm}
-          onChange={handleChange}
-          placeholder="Masukkan Kategorinya ya!"
-          required
-        />
+        <div className={styles.categoryWrap}>
+          <div className={styles.title}>Kategori Yang Mau Diacak?</div>
+          <div className={styles.checkbox}>
+            <input
+              onChange={handleCheckSender}
+              type="checkbox"
+              id="show"
+              name="show"
+            />
+            <label htmlFor="show">Lainnya</label>
+          </div>
+        </div>
+        {!show && (
+          <div className={styles.wrapCustom}>
+            {categoryCustom.map((item: any, index: any) => {
+              return (
+                <div
+                  key={index}
+                  onClick={(e) => handleActive(e, index, item)}
+                  className={styles.categoryCustom}
+                >
+                  <div className={`${index === id && styles.active}`}>
+                    {item}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        )}
+        {show && (
+          <input
+            name="kategori"
+            id="kategori"
+            className={styles.inputForm}
+            onChange={handleChange}
+            placeholder="Masukkan Kategorinya ya!"
+            required
+          />
+        )}
+        <div className={styles.title}>Input Apa?</div>
         <input
           name="input"
           id="input"

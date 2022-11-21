@@ -7,6 +7,7 @@
   justify-content: space-between;
   position: relative;
   z-index: 2;
+  align-items: center;
   .categoryWrapper {
     width: 100%;
     text-align: center;
@@ -14,12 +15,12 @@
       font-size: 24px;
       font-weight: 700;
       width: 100%;
-      color: $white-primary;
+      color: #35475a;
       margin-bottom: 12px;
       text-transform: capitalize;
     }
     .subTitleRandom {
-      color: $white-fade;
+      color: #35475a;
       font-size: 14px;
       margin-bottom: 24px;
     }
@@ -27,7 +28,7 @@
 
   .countNumber {
     font-size: 120px;
-    color: $white-primary;
+    color: #35475a;
     font-weight: 600;
     text-align: center;
   }
@@ -43,7 +44,7 @@
       padding: 12px 32px;
       // width: max-content;
       margin: auto;
-      border-radius: 32px;
+      border-radius: 10px;
       font-weight: 700;
       color: $darkpurple-primary;
       background-color: $white-primary;
@@ -52,16 +53,30 @@
 
   .buttonRandom {
     width: 100%;
-    button {
-      width: 100%;
-      border: none !important;
-      background-color: $blue-primary;
-      color: $white-primary;
-      padding: 14px;
+    border: none !important;
+    background-color: #748cca;
+    box-shadow: 0px 6px 12px rgba(72, 72, 72, 0.15);
+    color: $white-primary;
+    height: 62px;
+    padding: 8px;
+    font-weight: 600;
+    font-size: 16px;
+    border-radius: 20px;
+    .innerButton {
+      background: $white;
+      border-radius: 10px;
+      height: 100%;
+      color: #35475a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       font-weight: 600;
-      font-size: 16px;
-      border-radius: 8px;
     }
+    // button {
+    //   span {
+    //     background-color: $white;
+    //   }
+    // }
   }
 }
 .pattern {
@@ -72,10 +87,14 @@
 }
 .wrapperResult {
   display: flex;
+  width: min-content;
+  padding: 12px;
+  border-radius: 20px;
   flex-direction: column;
   align-items: center;
+  background-color: #748cca;
   .emoji {
-    font-size: 106px;
+    font-size: 126px;
     // margin-bottom: 16px;
   }
 }

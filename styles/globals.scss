@@ -43,6 +43,34 @@ a {
   background: rgb(224, 224, 224);
 }
 
+#menu-1 {
+  background-color: #748cca;
+}
+
+#menu-2 {
+  background-color: #76b9ce;
+}
+
+#main-menu {
+  height: 100%;
+  .carousel-root {
+    height: inherit;
+    .carousel {
+      height: inherit;
+      .slider-wrapper {
+        height: inherit;
+        .slider {
+          height: inherit;
+          .slide {
+            // min-width: 85% !important;
+            // margin-right: 24px;
+          }
+        }
+      }
+    }
+  }
+}
+
 h1,
 h2,
 h3,

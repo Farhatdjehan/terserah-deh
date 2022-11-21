@@ -5,6 +5,14 @@ import illustration4 from "./../../../public/assets/png/illustration4.png";
 import illustration5 from "./../../../public/assets/png/illustration5.png";
 import illustration6 from "./../../../public/assets/png/illustration6.png";
 
+export const categoryCustom = [
+  "Makanan",
+  "Minuman",
+  "Minyak Wangi",
+  "Jajanan",
+  "Kado",
+];
+
 export const category = [
   {
     illustration: illustration,

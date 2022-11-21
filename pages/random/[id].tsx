@@ -164,12 +164,12 @@ export default function CategoryDetail() {
           </>
         )}
         {showResult ? (
-          <div className={styles.buttonRandom}>
-            <button onClick={handleRandom}>Acak Lagi</button>
+          <div className={styles.buttonRandom} onClick={handleRandom}>
+            <div className={styles.innerButton}>Acak Lagi</div>
           </div>
         ) : (
-          <div className={styles.buttonRandom}>
-            <button onClick={handleRandom}>Acak</button>
+          <div className={styles.buttonRandom} onClick={handleRandom}>
+            <div className={styles.innerButton}>Acak</div>
           </div>
         )}
       </div>
